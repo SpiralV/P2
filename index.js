@@ -11,18 +11,13 @@ const openkey = process.env.OPENKEY
 // declare an instance of app
 const app = express()
 
-app.set('view engine', 'ejs')
 app.use(express)
 app.use(ejsLayouts)
+app.set('view engine', 'ejs')
 
-app.get('/', (req, res) => {
-    axios.get(``)
-    .then((resReply) => {
-        res.send(resReply)
-    })
-    .catch(err => {console.log(err)})
-    })
-
+app.get('', (req, res) => {
+    res.render('index')
+})
 
 
 
