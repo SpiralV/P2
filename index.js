@@ -8,12 +8,12 @@ const port = 39933
 app.set('view engine', 'ejs')
 const db = require('./models/')
 app.use(express.static('public'))
+app.use(express.urlencoded({ extended: true }))
 // // define API key var
-// const openkey = process.env.OPENKEY
+const openkey = process.env.OPENKEY
 // // declare an instance of app
 // const methodOverride = require('method-override')
 // app.use(express.static(__dirname + '/public'))
-// app.use(express.urlencoded({ extended: false }))
 // app.use(methodOverride('_method'))
 // app.use(express)
 // app.use(ejsLayouts)

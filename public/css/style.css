@@ -19,7 +19,6 @@ header {
 
 .topcon {
     position: absolute;
+    justify-content: left;
     padding: 10px;
-    height: 10%;
-    width: 10%;
 }
