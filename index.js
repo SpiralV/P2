@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 // import ejsLayouts
 const ejsLayouts = require('express-ejs-layouts')
+const { sequelize } = require('./models/')
 require('dotenv').config()
 const port = 39933
 app.set('view engine', 'ejs')
@@ -22,7 +23,18 @@ app.use('/user', require('./routes/user'))
 app.use('/location', require('./routes/location'))
 app.use('/user_location', require('./routes/user_location'))
 
-app.listen(port, () => {
+app.post('/users', async(req, res) => {
+    const { name } = req.body
+
+    try {
+       const user = await users.create({ name })
+       return res.json(user)
+    } catch(err)
+ {
+     return res.status(500).json(err)
+ }})
+
+app.listen(port,  () => {
     console.log(`yes this is ${port}`)
 })
 
