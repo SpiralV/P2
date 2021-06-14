@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: rgb(211, 227, 230);
+}
+
+header {
+    height: 3rem;
+    width: 100%;
+    position: relative;
+    background: rgb(187, 161, 199);
+}
+
+.topcon {
+    position: absolute;
+    padding: 10px;
+    height: 10%;
+    width: 10%;
+}
