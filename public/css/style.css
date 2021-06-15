@@ -11,6 +11,7 @@ body {
 }
 
 header {
+    display: table-row;
     height: 50px;
     width: 100%;
     position: relative;
@@ -18,9 +19,11 @@ header {
 }
 
 .topcon {
-    position: absolute;
-    justify-content: left;
     padding: 10px;
     width: 80px;
     height: 80px;
+}
+
+.nav1 {
+    color: white;
 }

@@ -6,38 +6,38 @@
   <title>rain.cloud</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
-  <div class="container">
+
+<div class="container">
     <header>
-      <div class="compass-icon"><img src="/icons/pngegg.png" alt=""></div>
+      <div class="navbar"><img src="/icons/pngegg.png" class='topcon' alt=""></div>
+      <a href="/user">Sign Up Here</a>
     </header>
     <div class="weather-title">
       <h1>rain.cloud</h1>
       <p>view weather info for your city</p>
     </div>
-    <form action="/" method="POST">
-      <input type="text" name="city" class="ghost-input" placeholder="Enter a city">
-    </form>
-
-    <div class="result">
-      <% if(temp !== null)  {%>
-        <h1 class="temp"><%= temp %></h1>
-      <% } %>
-
-      <div class="icon-des">
-        <% if(icon !== null)  {%>
-          <img class="icon" src="http://openweathermap.org/img/w/<%= icon %>.png" alt="">
-        <% } %>
-        <% if(des !== null)  {%>
-          <h3><%= des %></h3>
-        <% } %>
-      </div>
-
-      <% if(city !== null)  {%>
-        <p class="city"><%= city %></p>
-      <% } %>
-      
     </div>
+  <form action="/" method="POST">
+    <input type="text" name="city" class="ghost-input" placeholder="Enter a city">
+  </form>
+
+  <div class="result">
+    <% if(temp !== null)  {%>
+      <h1 class="temp"><%= temp %></h1>
+    <% } %>
+
+    <div class="icon-des">
+      <% if(icon !== null)  {%>
+        <img class="icon" src="http://openweathermap.org/img/w/<%= icon %>.png" alt="">
+      <% } %>
+      <% if(des !== null)  {%>
+        <h3><%= des %></h3>
+      <% } %>
+    </div>
+
+    <% if(city !== null)  {%>
+      <p class="city"><%= city %></p>
+    <% } %>
+    
   </div>
-</body>
-</html>
+</div>

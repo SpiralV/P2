@@ -22,7 +22,7 @@ app.post('/', async (req, res) => {
     .then(res => res.json())
     .then(data => {
     if (data.message === 'city not found') {
-      res.render('index', {
+      res.render('location', {
         city: data.message,
         des: null,
         icon: null,
@@ -34,14 +34,14 @@ app.post('/', async (req, res) => {
       const icon = data.weather[0].icon;
       const temp = data.main.temp;
     
-      res.render('index', {
+      res.render('location', {
         city, des, icon, temp
       })
     }
   })
     
   } catch (err) {
-    res.render('index', {
+    res.render('location', {
       city: 'something wrong',
       des: null,
       icon: null,
