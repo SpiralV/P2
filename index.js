@@ -5,7 +5,6 @@ const app = express()
 const ejsLayouts = require('express-ejs-layouts')
 const { sequelize } = require('./models/')
 require('dotenv').config()
-const port = 39933
 app.set('view engine', 'ejs')
 const db = require('./models/')
 app.use(express.static('public'))
@@ -34,7 +33,7 @@ app.post('/users', async(req, res) => {
      return res.status(500).json(err)
  }})
 
-app.listen(process.env.port,  () => {
+app.listen(process.env.PORT,  () => {
     console.log(`yes this is ${port}`)
 })
 
