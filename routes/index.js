@@ -22,7 +22,7 @@ app.post('/', async (req, res) => {
     .then(res => res.json())
     .then(data => {
     if (data.message === 'city not found') {
-      res.render('location', {
+      res.render('index', {
         city: data.message,
         des: null,
         icon: null,
@@ -50,4 +50,9 @@ app.post('/', async (req, res) => {
   }
 })
 
-module.exports = app
+app.post('/', async (req, res) => {
+  const city = req.body.city
+
+
+})
+  module.exports = app
