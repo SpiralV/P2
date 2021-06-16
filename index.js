@@ -5,6 +5,7 @@ const app = express()
 const ejsLayouts = require('express-ejs-layouts')
 const { sequelize } = require('./models/')
 require('dotenv').config()
+const PORT = 3963
 app.set('view engine', 'ejs')
 const db = require('./models/')
 app.use(express.static('public'))
