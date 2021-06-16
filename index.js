@@ -34,7 +34,7 @@ app.post('/users', async(req, res) => {
      return res.status(500).json(err)
  }})
 
-app.listen(port,  () => {
+app.listen(process.env.port,  () => {
     console.log(`yes this is ${port}`)
 })
 
