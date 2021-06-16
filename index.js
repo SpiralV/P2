@@ -34,7 +34,7 @@ app.post('/users', async(req, res) => {
  }})
 
 app.listen(process.env.PORT,  () => {
-    console.log(`yes this is ${port}`)
+    console.log(`yes this is ${PORT}}`)
 })
 
 module.exports = app
