@@ -34,14 +34,14 @@ app.post('/', async (req, res) => {
       const icon = data.weather[0].icon;
       const temp = data.main.temp;
     
-      res.render('location', {
+      res.render('index', {
         city, des, icon, temp
       })
     }
   })
     
   } catch (err) {
-    res.render('location', {
+    res.render('index', {
       city: 'something wrong',
       des: null,
       icon: null,
