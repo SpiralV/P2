@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     
 }
 body {
@@ -11,19 +10,50 @@ body {
 }
 
 header {
-    display: table-row;
     height: 50px;
     width: 100%;
-    position: relative;
     background: rgb(187, 161, 199);
 }
 
 .topcon {
-    padding: 10px;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
 }
 
-.nav1 {
+.topcon1 {
+    list-style-type: none;
+}
+
+.topnav {
+    overflow: auto;
+}
+
+li {
+    width: 20%;
+    float: left;
+    margin:2.5%;
+}
+
+a:link {
     color: white;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: lightcyan;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: grey;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+a:active {
+    color: goldenrod;
+    background-color: transparent;
+    text-decoration: underline;
 }

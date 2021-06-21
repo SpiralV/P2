@@ -3,7 +3,7 @@ const app = express()
 const db = require('../models')
 
 app.get('/', (req, res) => {
-    res.render('user')
+    res.render('user', {data: data})
 })
 
 module.exports = app
