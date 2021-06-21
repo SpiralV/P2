@@ -52,7 +52,6 @@ app.post('/users', async(req, res) => {
 app.post('/', async (req, res) => {
     const city = req.body.city
     console.log(city)
-    // const urlapi = `api.openweathermap.org/data/2.5/weather?q=${city}&appid=da7e7c74ccff8b7ee78ac3b5d3da8425`
     const newUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.OPENKEY}`
     try {
     await axios.get(newUrl)
