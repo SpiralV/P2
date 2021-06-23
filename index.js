@@ -11,7 +11,7 @@ const db = require('./models/')
 const axios = require('axios')
 const openkey = process.env.OPENKEY
 // const methodOverride = require('method-override')
-
+6
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }))
@@ -24,25 +24,89 @@ app.use('/user', require('./routes/user'))
 app.use('/location', require('./routes/location'))
 app.use('/user_location', require('./routes/user_location'))
 
+//user stays logged in via localstorage
+//get user name from field
+//find or create user name within user DB
 app.post('/users', async(req, res) => {
-    const { name } = req.body
+    let name = req.body.name
+  db.user.findOrCreate({
+    where: {
+      name: name
+    }
+  }) .then(user => {
+    console.log(user[0].dataValues.id)
+     if(!db.user_location.findAll({
+       where: {
+       userid:  user[0].dataValues.id}})){
+      res.redirect('index')
+    } else {
+      db.user_location.findAll({
+        where: {
+          userid: user[0].dataValues.id
+        }
+      })
+    }  
+  })
 
-    try {
-       const user = await users.create({ name })
-       return res.json(user)
-    } catch(err)
- {
-     return res.status(500).json(err)
- }})
-
- app.get('/', (req, res) => {
-    res.render('index', {
-        city: null,
-        des: null,
-        icon: null,
-        temp: null
-    })
 })
+
+
+//     try {
+//        let user = await db.users.create(name)
+//        res.send('user matthew here')
+//     } catch(err)
+//  {
+//      return res.status(500).json(err)
+//  }})
+//app.put /user_location
+// update name within DB 
+
+// app.put('/user_location', async(req, res) => {
+
+// })
+
+//app.get /user_location
+//identify current user (via id)
+//list user locations tied to user id
+//render user and locations
+
+// app.get('/user_location', async(req, res) => {
+
+// })
+
+//app.delete /user_location
+//delete user location from user listen
+
+// app.delete ('/user_location', async(req, res) => {
+
+// })
+
+//app.post /
+//after location is entered, if user is logged in display save location button
+//create the id that is the location id tied to the user id 
+
+// app.post ('/', async(req, res) => {
+
+// })
+
+app.get('/', (req, res) => {
+   res.render('index', {
+       city: null,
+       des: null,
+       icon: null,
+       temp: null
+   })
+})
+
+
+
+
+
+
+
+
+
+
 
 // app.post('/', async (req, res) => {
 //   const city = req.body.city
@@ -55,13 +119,13 @@ app.post('/', async (req, res) => {
     const newUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.OPENKEY}`
     try {
     await axios.get(newUrl)
-    // .then(resp => {
-    //     if(resp){
-    //         console.log(resp.data)
-    //     }else{
-    //         console.log("no")
-    //     }
-    //     })
+    .then(resp => {
+        if(resp){
+            console.log(resp.data)
+        }else{
+            console.log("no")
+        }
+        })
     .then(data => {
         console.log(data.data)
     if (data.data.cod === 404) {
@@ -78,7 +142,7 @@ app.post('/', async (req, res) => {
       const temp = data.data.main.temp;
     
       res.render('index', {
-        city, des, icon, temp
+       des, icon, temp, city
       })
     }
   })
