@@ -1,6 +1,16 @@
 <h1>rain.cloud</h1>
-<form method="POST" action="/users">
-    <label for="userName">User name:</label>
-    <input id="userName" type="text" name="name" />
-    <input type="submit" />
-</form>
+   
+     <form method="POST" action="/user"> 
+        <label for="userName">User name:</label> 
+        <input id="userName" type="text" name="name" /> 
+        <input type="submit" onclick="cooky()" /> 
+     </form>
+   <script>
+        function cooky(){
+         if(name.innerText !== null) {
+        let name = document.getElementById('name')
+        name.innerText = localStorage.getItem('text')
+        console.log(name)}}
+   </script>
+
+<% (console.log('gday')) %>

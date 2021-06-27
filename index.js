@@ -27,39 +27,27 @@ app.use('/user_location', require('./routes/user_location'))
 //user stays logged in via localstorage
 //get user name from field
 //find or create user name within user DB
-app.post('/users', async(req, res) => {
-    let name = req.body.name
-  db.user.findOrCreate({
-    where: {
-      name: name
-    }
-  }) .then(user => {
-    console.log(user[0].dataValues.id)
-     if(!db.user_location.findAll({
-       where: {
-       userid:  user[0].dataValues.id}})){
-      res.redirect('index')
-    } else {
-      db.user_location.findAll({
-        where: {
-          userid: user[0].dataValues.id
-        }
-      })
-    }  
-  })
+// app.post('/users', async(req, res) => {
+//     let name = req.body.name
+//   db.user.findOrCreate({
+//     where: {
+//       name: name
+//     }
+//   }) 
 
-})
-
-
-//     try {
-//        let user = await db.users.create(name)
-//        res.send('user matthew here')
-//     } catch(err)
-//  {
-//      return res.status(500).json(err)
-//  }})
-//app.put /user_location
-// update name within DB 
+  
+  
+//   try {
+//     let user = await db.users.create(name)
+//     res.send('user matthew here')
+//     console.log(name)
+//   } catch(err)
+//   {
+//     return res.status(500).json(err)
+//   }
+// })
+  //app.put /user_location
+//update name within DB 
 
 // app.put('/user_location', async(req, res) => {
 
@@ -119,15 +107,8 @@ app.post('/', async (req, res) => {
     const newUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.OPENKEY}`
     try {
     await axios.get(newUrl)
-    .then(resp => {
-        if(resp){
-            console.log(resp.data)
-        }else{
-            console.log("no")
-        }
-        })
     .then(data => {
-        console.log(data.data)
+        
     if (data.data.cod === 404) {
       res.render('index', {
         // city: data.cod,
