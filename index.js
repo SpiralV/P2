@@ -6,7 +6,7 @@ const app = express()
 const ejsLayouts = require('express-ejs-layouts')
 const { sequelize } = require('./models/')
 require('dotenv').config()
-const PORT = 3963
+// const PORT = 3963
 app.set('view engine', 'ejs')
 const db = require('./models/')
 // const fetch = require('node-fetch')
@@ -147,8 +147,8 @@ app.post('/', async (req, res) => {
 })
 
 
-app.listen(process.env.PORT,  () => {
-    console.log(`yes this is ${PORT}}`)
-})
+// app.listen(process.env.PORT,  () => {
+//     console.log(`yes this is ${PORT}}`)
+// })
 
 module.exports = app
