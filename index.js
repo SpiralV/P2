@@ -20,8 +20,8 @@ app.use(express.static(__dirname + '/public'))
 app.use(ejsLayouts)
 // routes below
 // app.use('/', require('./routes/other'))
-app.use('/user', require('./routes/user'))
 app.use('/location', require('./routes/location'))
+app.use('/user', require('./routes/user'))
 app.use('/user_location', require('./routes/user_location'))
 
 //user stays logged in via localstorage
@@ -104,6 +104,11 @@ app.get('/', (req, res) => {
 app.post('/', async (req, res) => {
     const city = req.body.city
     console.log(city)
+    await db.location.findOrCreate({
+      where: {city: city}})
+      await db.user_location.findOrCreate({
+        where: {city: city}
+      })
     const newUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.OPENKEY}`
     try {
     await axios.get(newUrl)

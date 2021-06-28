@@ -7,8 +7,18 @@ app.get('/', (req, res) => {
 })
 app.post('/', (req, res) => {
     let userIn = req.body.name
-    // res.send('hello')
+    db.user.findOrCreate({
+      where: {name: userIn}})
     res.render('user_location', { userName: userIn })
   })
+
+app.put('/', (req, res) => {
+  let userIn = req.body.name
+  console.log(userIn)
+  db.user.update({
+    where: {name: userIn}})
+    res.render('user_location', { userName: userIn })
+  })
+
 
 module.exports = app

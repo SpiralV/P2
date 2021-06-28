@@ -3,12 +3,20 @@
    <p>Hello <%- userName %> Welcome To Your Page</p>
 </div>
 <div>
-   <% if(userName ! == null){%>
+   <% if(userName !== null){%>
       <% console.log(userName)}%>
-      <form method="UPDATE" action="/user_location">
+      <form method="POST" action="/user_location?_method=UPDATE">
          <label for="nameChange">Change Username:</label>
          <input id="nameChange" type="text" name="name" />
+         <input type="submit" />
       </form>
    
 </div>
-
+<div>
+   <%# db.forEach user location, display location id/city name and delete button form #%>
+   <form method="POST" action="/user_location?_method=DELETE"> 
+      <label for="locationId">Saved Location</label> 
+      <input id="userName" type="text" name="name" /> 
+      <input type="submit" /> 
+   </form>
+</div>

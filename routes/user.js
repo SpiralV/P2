@@ -8,15 +8,14 @@ app.get('/', (req, res) => {
 
 // app.post('/', (req, res) => {
 //   let name = req.body.name
-//  db.user.findOrCreate({
-//   where: {name: name}})
 // res.render('user', { userName: name })
 //  })
 
 // app.post('/user_location', (req, res) => {
-//   let userIn = req.body.name
-//   res.send('hello')
-//   // res.render('user_location', { userName: userIn })
+//     let userIn = req.body.name
+    // db.user.findOrCreate({
+    //  where: {name: userIn}})
+//   res.render('user_location', { userName: userIn })
 // })
 // app.post('/', async(req, res) => {
 //     let name = req.body.name
