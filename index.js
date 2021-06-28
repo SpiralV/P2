@@ -5,13 +5,9 @@ const app = express()
 // import ejsLayouts
 const ejsLayouts = require('express-ejs-layouts')
 const { sequelize } = require('./models/')
-<<<<<<< HEAD
-const port = 39933
-=======
 require('dotenv').config()
 const PORT = 3963
 app.set('view engine', 'ejs')
->>>>>>> 3ab07e1651b642b3645d497ef3b19fa4e3613232
 const db = require('./models/')
 // const fetch = require('node-fetch')
 const axios = require('axios')
