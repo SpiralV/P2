@@ -18,6 +18,11 @@
     "method-override": "^3.0.0",
     "node-fetch": "^2.6.1",
     "pg": "^8.6.0",
+<<<<<<< HEAD
     "sequelize": "^6.6.2"
+=======
+    "sequelize": "^6.6.2",
+    "sequelize-cli": "^6.2.0"
+>>>>>>> 3ab07e1651b642b3645d497ef3b19fa4e3613232
   }
 }
