@@ -10,4 +10,5 @@ app.post('/', (req, res) => {
     // res.send('hello')
     res.render('user_location', { userName: userIn })
   })
+
 module.exports = app
